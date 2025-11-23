@@ -10,9 +10,19 @@
         "displayName": "Hit Box"
     },
     "image3": {
-        "data": "hwQQABAAAADw/////////393d3d3d3f38Hd3d3d3d/cAf3cXEXd39wB/dxERcXf3AH938RFxd/cAfxcR8RF39wB/FxERH3f3AH8XEREfd/cAfxcR8RF39wB/d/ERcXf3AH93ERFxd/cAf3cXEXd39/B3d3d3d3f3f3d3d3d3d/fw/////////w==",
+        "data": "hwQQABAAAAD//////////393d3d3d3f3f3d3d3d3d/d/d3d3d3d39393dxERd3f3f3cR8R8Rd/d/FxEf8RFx938XEREREXH3fxfxEREfcfd/dxERERF39393dxERd3f3f3d3d3d3d/d/d3d3d3d393/3/////3/3fw8AAAAA8PfwAAAAAAAADw==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "GD Square0"
+    },
+    "image4": {
+        "data": "hwQQABAAAAD/////////D393d3d3d3f3f3d3d3d3dw9/d3cRcXf3AH93FxERd/cAf3cXER939wB/dxEfEXH3AH938RERcfcAf3fxERFx9wB/dxEfEXH3AH93FxEfd/cAf3cXERF39wB/d3cRcXf3AH93d3d3d3cPf3d3d3d3d/f/////////Dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "GD Square1"
+    },
+    "image5": {
+        "data": "hwQQABAAAADwAAAAAAAAD38PAAAAAPD3f/f/////f/d/d3d3d3d39393d3d3d3f3f3d3ERF3d/d/dxERERF3938X8RERH3H3fxcRERERcfd/FxEf8RFx9393EfEfEXf3f3d3ERF3d/d/d3d3d3d39393d3d3d3f3f3d3d3d3d/f//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "GD Square2"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

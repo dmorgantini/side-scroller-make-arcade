@@ -29,6 +29,24 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         mySprite.vy = -150
+        if (direction == "up") {
+            mySprite.vy = -150
+            timer.after(100, function () {
+                mySprite.setImage(assets.image`GD Square0`)
+                timer.after(100, function () {
+                    mySprite.setImage(assets.image`GD Square1`)
+                    direction = "down"
+                })
+            })
+        } else {
+            timer.after(100, function () {
+                mySprite.setImage(assets.image`GD Square2`)
+                timer.after(100, function () {
+                    mySprite.setImage(assets.image`GD Square`)
+                    direction = "up"
+                })
+            })
+        }
     }
 })
 function addSpike (x: number) {
@@ -110,14 +128,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     500,
     true
     )
-    game.over(false, effects.dissolve)
+    game.over(false)
 })
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
+let direction = ""
+direction = "down"
 scene.setBackgroundColor(8)
 tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(assets.image`GD Square`, SpriteKind.Player)
 mySprite.setFlag(SpriteFlag.ShowPhysics, true)
+direction = "up"
 addSpike(6)
 addSpike(16)
 addSpike(17)
