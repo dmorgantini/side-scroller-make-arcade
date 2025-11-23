@@ -6,9 +6,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.vy = -150
     }
 })
-function addEnemy (x: number, y: number) {
+function addSpike (x: number) {
     mySprite2 = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
-    mySprite2.setPosition(x, y)
+    mySprite2.setPosition(9 + 16 * x, 105)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false, effects.dissolve)
@@ -19,9 +19,15 @@ scene.setBackgroundColor(8)
 tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(assets.image`GD Square`, SpriteKind.Player)
 mySprite.setFlag(SpriteFlag.ShowPhysics, true)
-addEnemy(473, 105)
-addEnemy(489, 105)
-addEnemy(505, 105)
+addSpike(6)
+addSpike(16)
+addSpike(17)
+addSpike(29)
+addSpike(30)
+addSpike(31)
+addSpike(41)
+addSpike(42)
+addSpike(43)
 mySprite.setPosition(6, 98)
 mySprite.ay = 400
 mySprite.vx = 100
