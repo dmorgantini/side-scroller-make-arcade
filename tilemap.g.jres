@@ -15,17 +15,17 @@
         "tilemapTile": true,
         "displayName": "myTile"
     },
+    "tile3": {
+        "data": "hwQQABAAAAAAAAAAAAAwMwAAAAAAADMzAAAAAAAwMzMAAAAAADMzMwAAAAAwMzMzAAAAADMzMzMAAAAwMzMzMwAAADMzMzMzAAAAMzMzMzMAAAAwMzMzMwAAAAAzMzMzAAAAADAzMzMAAAAAADMzMwAAAAAAMDMzAAAAAAAAMzMAAAAAAAAwMw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile0"
+    },
     "tile4": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAiIiIiIiIAICIiIgAAAAAAIiICAAAAAAAgIgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "myTile1"
-    },
-    "tile3": {
-        "data": "hwQQABAAAAAAAAAAAAAQEQAAAAAAAAEQAAAAAAAQABAAAAAAAAEAEAAAAAAQAAAQAAAAAAEAABAAAAAQAAAAEAAAAAEAAAAQAAAAAQAAABAAAAAQAAAAEAAAAAABAAAQAAAAABAAABAAAAAAAAEAEAAAAAAAEAAQAAAAAAAAARAAAAAAAAAQEQ==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile0"
     },
     "level": {
         "id": "level",
