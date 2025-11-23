@@ -19,9 +19,9 @@ scene.setBackgroundColor(8)
 tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(assets.image`GD Square`, SpriteKind.Player)
 mySprite.setFlag(SpriteFlag.ShowPhysics, true)
-addEnemy(105, 105)
-addEnemy(265, 105)
-addEnemy(290, 105)
+addEnemy(473, 105)
+addEnemy(489, 105)
+addEnemy(505, 105)
 mySprite.setPosition(6, 98)
 mySprite.ay = 400
 mySprite.vx = 100
