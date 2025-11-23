@@ -1,0 +1,17 @@
+{
+    "image1": {
+        "data": "hwQQABAAAADw/////////393d3d3d3f38Hd3d3d3d/cAf3cXEXd39wB/dxERcXf3AH938RFxd/cAfxcR8RF39wB/FxERH3f3AH8XEREfd/cAfxcR8RF39wB/d/ERcXf3AH93ERFxd/cAf3cXEXd39/B3d3d3d3f3f3d3d3d3d/fw/////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "GD Square"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMAAAAAAAADMAAAAAAAAAMwAAAAAAAAMzMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Hit Box"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
