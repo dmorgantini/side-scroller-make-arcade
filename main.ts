@@ -42,6 +42,9 @@ function addSpike (x: number) {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
+controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
+    doJump()
+})
 function addminSpike (x: number) {
     spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
     spike_hit.setPosition(9 + 16 * x, 110)
@@ -67,7 +70,7 @@ function addminSpike (x: number) {
 }
 function doJump () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
-        mySprite.vy = -130
+        mySprite.vy = -140
         if (spriteDirection == "up") {
             timer.after(100, function () {
                 mySprite.setImage(assets.image`GD Square0`)
@@ -107,7 +110,7 @@ addSpike(23)
 addSpike(22)
 mySprite.setPosition(6, 98)
 mySprite.ay = 400
-mySprite.vx = 100
+mySprite.vx = 110
 scene.cameraFollowSprite(mySprite)
 forever(function () {
     if (mySprite.isHittingTile(CollisionDirection.Right)) {
