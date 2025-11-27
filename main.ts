@@ -18,10 +18,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     doJump()
 })
-function addgrondSpike (x: number) {
-    spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
-    spike_hit.setPosition(9 + 16 * x, 112)
-    mySprite2 = sprites.create(img`
+function addGroundSpike (x: number, y: number) {
+    hitboxSprite = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
+    spikeSprite = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -39,12 +38,15 @@ function addgrondSpike (x: number) {
         f 6 f 6 f f f . f 6 6 6 f 6 f 6 
         f f f f f f f f f f f f f f f f 
         `, SpriteKind.spike)
-    mySprite2.setPosition(9 + 16 * x, 104)
+    setSpikeLocation(x, y, spikeSprite, 8, hitboxSprite)
 }
-function addSpike (x: number) {
-    spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
-    spike_hit.setPosition(9 + 16 * x, 105)
-    mySprite2 = sprites.create(img`
+function setSpikeLocation (x: number, y: number, spikeSprite: Sprite, hitBoxOffset: number, hitBoxSprite: Sprite) {
+    spikeSprite.setPosition(9 + 16 * x, 9 + 16 * y)
+    hitBoxSprite.setPosition(9 + 16 * x, 9 + hitBoxOffset + 16 * y)
+}
+function addSpike (x: number, y: number) {
+    hitboxSprite = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
+    spikeSprite = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -62,36 +64,25 @@ function addSpike (x: number) {
         f f f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f f f 
         `, SpriteKind.spike)
-    mySprite2.setPosition(9 + 16 * x, 104)
+    setSpikeLocation(x, y, spikeSprite, 1, hitboxSprite)
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
-    game.over(true, effects.confetti)
-})
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     doJump()
 })
-function addminSpike (x: number) {
-    spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
-    spike_hit.setPosition(9 + 16 * x, 110)
-    mySprite2 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . f f . . . . . . . 
-        . . . . . . f f f f . . . . . . 
-        . . . . . f f f f f f . . . . . 
-        . . . f f f f f f f f f f f . . 
-        . f f f f f f f f f f f f f f f 
-        f f f f f f f f f f f f f f f f 
-        `, SpriteKind.spike)
-    mySprite2.setPosition(9 + 16 * x, 104)
+function addAllSpikes () {
+    addSpike(6, 6)
+    addMinSpike(16, 6)
+    addSpike(17, 6)
+    addSpike(23, 6)
+    addSpike(22, 6)
+    addSpike(39, 6)
+    addSpike(40, 6)
+    addGroundSpike(25, 6)
+    addGroundSpike(26, 6)
+    addGroundSpike(27, 6)
+    addGroundSpike(29, 6)
+    addGroundSpike(30, 6)
+    addGroundSpike(31, 6)
 }
 function doJump () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
@@ -115,11 +106,33 @@ function doJump () {
         }
     }
 }
+function addMinSpike (x: number, y: number) {
+    hitboxSprite = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
+    spikeSprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . f f . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f f f f f f f f f f . . 
+        . f f f f f f f f f f f f f f f 
+        f f f f f f f f f f f f f f f f 
+        `, SpriteKind.spike)
+    setSpikeLocation(x, y, spikeSprite, 6, hitboxSprite)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.gameOver(false)
 })
-let mySprite2: Sprite = null
-let spike_hit: Sprite = null
+let spikeSprite: Sprite = null
+let hitboxSprite: Sprite = null
 let mySprite: Sprite = null
 let spriteDirection = ""
 spriteDirection = "down"
@@ -128,23 +141,11 @@ tiles.setTilemap(tilemap`level1`)
 mySprite = sprites.create(assets.image`GD Square`, SpriteKind.Player)
 mySprite.setFlag(SpriteFlag.ShowPhysics, true)
 spriteDirection = "up"
-addSpike(6)
-addminSpike(16)
-addSpike(17)
-addSpike(23)
-addSpike(22)
-addSpike(39)
-addSpike(40)
-addgrondSpike(25)
-addgrondSpike(26)
-addgrondSpike(27)
-addgrondSpike(29)
-addgrondSpike(30)
-addgrondSpike(31)
 mySprite.setPosition(6, 98)
 mySprite.ay = 400
 mySprite.vx = 110
 scene.cameraFollowSprite(mySprite)
+addAllSpikes()
 forever(function () {
     if (mySprite.isHittingTile(CollisionDirection.Right)) {
         game.setGameOverMessage(false, "GAME OVER!")
