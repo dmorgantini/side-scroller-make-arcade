@@ -12,13 +12,38 @@ function playMusic () {
     music.playMelody("C C F E D E F G ", 120)
     music.playMelody("C C F E D E F G ", 120)
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     doJump()
 })
+function addgrondSpike (x: number) {
+    spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
+    spike_hit.setPosition(9 + 16 * x, 112)
+    mySprite2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . 6 . . . 
+        . . . . . . . . . . . 6 6 6 . . 
+        . . . . . . . . . . . 6 6 6 . . 
+        . . 6 . . . . . . . 6 6 6 6 6 . 
+        . 6 6 6 . f . . . 6 6 6 6 6 6 6 
+        f 6 f 6 f f f . f 6 6 6 f 6 f 6 
+        f f f f f f f f f f f f f f f f 
+        `, SpriteKind.spike)
+    mySprite2.setPosition(9 + 16 * x, 104)
+}
 function addSpike (x: number) {
     spike_hit = sprites.create(assets.image`Hit Box`, SpriteKind.Enemy)
     spike_hit.setPosition(9 + 16 * x, 105)
-    spike_hit.setFlag(SpriteFlag.Invisible, true)
     mySprite2 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -108,6 +133,14 @@ addminSpike(16)
 addSpike(17)
 addSpike(23)
 addSpike(22)
+addSpike(39)
+addSpike(40)
+addgrondSpike(25)
+addgrondSpike(26)
+addgrondSpike(27)
+addgrondSpike(29)
+addgrondSpike(30)
+addgrondSpike(31)
 mySprite.setPosition(6, 98)
 mySprite.ay = 400
 mySprite.vx = 110
