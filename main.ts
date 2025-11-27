@@ -12,9 +12,6 @@ function playMusic () {
     music.playMelody("C C F E D E F G ", 120)
     music.playMelody("C C F E D E F G ", 120)
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     doJump()
 })
@@ -66,6 +63,9 @@ function addSpike (x: number, y: number) {
         `, SpriteKind.spike)
     setSpikeLocation(x, y, spikeSprite, 1, hitboxSprite)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
+    game.gameOver(true)
+})
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     doJump()
 })
