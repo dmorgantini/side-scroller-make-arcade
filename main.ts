@@ -78,6 +78,7 @@ function addAllSpikes () {
     addSpike(39, 6)
     addSpike(40, 6)
     addSpike(55, 5)
+    addSpike(67, 5)
     addGroundSpike(25, 6)
     addGroundSpike(26, 6)
     addGroundSpike(27, 6)
