@@ -77,12 +77,19 @@ function addAllSpikes () {
     addSpike(22, 6)
     addSpike(39, 6)
     addSpike(40, 6)
+    addSpike(55, 5)
     addGroundSpike(25, 6)
     addGroundSpike(26, 6)
     addGroundSpike(27, 6)
     addGroundSpike(29, 6)
     addGroundSpike(30, 6)
     addGroundSpike(31, 6)
+    addGroundSpike(50, 6)
+    addGroundSpike(51, 6)
+    addGroundSpike(51, 6)
+    addGroundSpike(51, 6)
+    addGroundSpike(59, 6)
+    addGroundSpike(60, 6)
 }
 function doJump () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
