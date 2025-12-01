@@ -2,6 +2,9 @@ namespace SpriteKind {
     export const ending = SpriteKind.create()
     export const spike = SpriteKind.create()
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
+    game.gameOver(true)
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     doJump()
 })
@@ -11,6 +14,11 @@ function playMusic () {
     music.playMelody("E B D C A B G A ", 120)
     music.playMelody("C C F E D E F G ", 120)
     music.playMelody("C C F E D E F G ", 120)
+}
+function addMultipleGroundSpikes (x: number, y: number, count: number) {
+    for (let index = 0; index <= count - 1; index++) {
+        addGroundSpike(index + x, y)
+    }
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     doJump()
@@ -63,34 +71,26 @@ function addSpike (x: number, y: number) {
         `, SpriteKind.spike)
     setSpikeLocation(x, y, spikeSprite, 1, hitboxSprite)
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
-    game.gameOver(true)
-})
 controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
     doJump()
 })
+function addMultipleSpikes (x: number, y: number, count: number) {
+    for (let index = 0; index <= count - 1; index++) {
+        addSpike(index + x, y)
+    }
+}
 function addAllSpikes () {
     addSpike(6, 6)
     addMinSpike(16, 6)
     addSpike(17, 6)
-    addSpike(23, 6)
-    addSpike(22, 6)
-    addSpike(39, 6)
-    addSpike(40, 6)
+    addMultipleSpikes(22, 6, 2)
+    addMultipleSpikes(39, 6, 2)
     addSpike(55, 5)
     addSpike(67, 5)
-    addGroundSpike(25, 6)
-    addGroundSpike(26, 6)
-    addGroundSpike(27, 6)
-    addGroundSpike(29, 6)
-    addGroundSpike(30, 6)
-    addGroundSpike(31, 6)
-    addGroundSpike(50, 6)
-    addGroundSpike(51, 6)
-    addGroundSpike(51, 6)
-    addGroundSpike(51, 6)
-    addGroundSpike(59, 6)
-    addGroundSpike(60, 6)
+    addMultipleGroundSpikes(25, 6, 3)
+    addMultipleGroundSpikes(29, 6, 3)
+    addMultipleGroundSpikes(50, 6, 2)
+    addMultipleGroundSpikes(59, 6, 2)
 }
 function doJump () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
@@ -135,6 +135,11 @@ function addMinSpike (x: number, y: number) {
         f f f f f f f f f f f f f f f f 
         `, SpriteKind.spike)
     setSpikeLocation(x, y, spikeSprite, 6, hitboxSprite)
+}
+function addMultipleMinSpikes (x: number, y: number, count: number) {
+    for (let index = 0; index <= count - 1; index++) {
+        addMinSpike(index + x, y)
+    }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.gameOver(false)
